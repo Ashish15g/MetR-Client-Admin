@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="loginScripts.EmailVaiditation">
+      <class name="com.metr.tests.ProjectTest">
         <methods>
           <include name="preCondition"/>
-          <include name="withInValidCr"/>
-          <include name="withValidCr"/>
+          <include name="projectValidation"/>
           <include name="postCondition"/>
         </methods>
-      </class> <!-- loginScripts.EmailVaiditation -->
+      </class> <!-- com.metr.tests.ProjectTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
