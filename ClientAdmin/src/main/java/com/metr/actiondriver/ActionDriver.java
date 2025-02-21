@@ -2,6 +2,7 @@ package com.metr.actiondriver;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,9 +14,9 @@ public class ActionDriver extends BaseClass {
 
 	public static WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 	public static JavascriptExecutor js = (JavascriptExecutor) driver;
+
 	// Method to highlight an element with a specific border color
 	public static void highlightElement(WebElement element, String color) {
-		
 		js.executeScript("arguments[0].style.border='3px solid " + color + "'", element);
 	}
 
@@ -61,6 +62,29 @@ public class ActionDriver extends BaseClass {
 
 	}
 
+	// Wait for the Page to Load
+	public static void waitForPageLoad(int timeOutInSec) {
+		try {
+			wait.withTimeout(Duration.ofSeconds(timeOutInSec)).until(WebDriver -> ((JavascriptExecutor) WebDriver)
+					.executeScript("return document.readyState").equals("complete"));
+			System.out.println("Page loaded successfully.");
+		} catch (Exception e) {
+			System.out.println("Page did not load within " + timeOutInSec + " secondes. Exception: " + e.getMessage());
+		}
+	}
+
+	// Scroll to an element
+	public void scrollToElement(WebElement element) {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			// WebElement element1 = driver.findElement((By) element);
+			element = driver.findElement((By) element);
+			js.executeScript("arguments[0],sccrollIntoView(true)", element);
+		} catch (Exception e) {
+			System.out.println("Unable to locate element:" + e.getMessage());
+		}
+	}
+
 	// wait for element to be Visible
 	public static void waitForElementToBeVisible(WebElement uname) {
 		try {
@@ -70,13 +94,24 @@ public class ActionDriver extends BaseClass {
 		}
 
 	}
-	//implicit wait
-	public static void implicitlyWait()
-	{
+
+	// Simplified the method and remove redundant condition
+	public boolean isDisplayed(WebElement element) {
+		try {
+			waitForElementToBeVisible(element);
+			return driver.findElement((By) element).isDisplayed();
+		} catch (Exception e) {
+			System.out.println("Element is not displayed: " + e.getMessage());
+			return false;
+		}
+	}
+
+	// implicit wait
+	public static void implicitlyWait() {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 	}
-	public static void jsClick(WebElement element)
-	{
+
+	public static void jsClick(WebElement element) {
 		try {
 			waitForElementToBeClickable(element);
 			js.executeScript("arguments[0].click();", element);

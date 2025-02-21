@@ -1,9 +1,8 @@
 package com.metr.base;
 
-import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,11 +12,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 
-import com.metr.actiondriver.ActionDriver;
 import com.metr.pages.Login;
 import com.metr.utilities.GetPropData;
 
 public class BaseClass {
+	
+	public static Properties prop;
 	public static WebDriver driver;
 
 	@BeforeClass
@@ -62,6 +62,11 @@ public class BaseClass {
 			System.out.println("Exception occurred: not login in any device" + e.getMessage());
 		}
 
+	}
+	
+	//Getter method for prop
+	public static Properties getProp() {
+		return prop;
 	}
 
 	@AfterClass
