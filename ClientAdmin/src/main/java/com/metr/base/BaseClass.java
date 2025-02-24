@@ -17,7 +17,6 @@ import com.metr.utilities.GetPropData;
 
 public class BaseClass {
 	
-	public static Properties prop;
 	public static WebDriver driver;
 
 	@BeforeClass
@@ -61,20 +60,12 @@ public class BaseClass {
 		{
 			System.out.println("Exception occurred: not login in any device" + e.getMessage());
 		}
-
 	}
-	
-	//Getter method for prop
-	public static Properties getProp() {
-		return prop;
-	}
-
 	@AfterClass
 	public void postCondition() throws InterruptedException {
 		Login lg = new Login(driver);
 
 		lg.DevLogOut();
-
 		Thread.sleep(6000);
 		driver.close();
 	}

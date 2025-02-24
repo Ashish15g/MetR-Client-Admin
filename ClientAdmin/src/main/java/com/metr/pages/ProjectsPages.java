@@ -14,6 +14,9 @@ public class ProjectsPages {
 	
 	public @FindBy(xpath = "//span[text()='Projects']")
 	WebElement projectSection;
+	public @FindBy(xpath="//div[text()='Project get Successfully']")
+	WebElement success_Msg;
+	
 	public @FindBy(xpath = "//button[contains(text(),' Refresh ')]")
 	WebElement refreshButton;
 	public @FindBy(xpath = "//button[contains(text(),' Add new project ')]")
@@ -30,5 +33,13 @@ public class ProjectsPages {
 	WebElement searchByProjectName;
 	public @FindBy(xpath="//span[@class='project-name']")
 	List<WebElement> projectsList;
+	//Delete ptoject
+	public @FindBy(xpath="//button[@class='btn']")
+	List<WebElement> deleteProjectsList;
+	public @FindBy(xpath = "//input[@class='form-control']")
+	WebElement DeleteProjectName;
+	public @FindBy(xpath = "//button[text()=' Delete this repository ']")
+	WebElement DeleteThisRepository;
+	
 
 }

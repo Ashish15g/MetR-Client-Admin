@@ -76,9 +76,7 @@ public class ActionDriver extends BaseClass {
 	// Scroll to an element
 	public void scrollToElement(WebElement element) {
 		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			// WebElement element1 = driver.findElement((By) element);
-			element = driver.findElement((By) element);
+			JavascriptExecutor js = (JavascriptExecutor) driver;			
 			js.executeScript("arguments[0],sccrollIntoView(true)", element);
 		} catch (Exception e) {
 			System.out.println("Unable to locate element:" + e.getMessage());
@@ -99,7 +97,7 @@ public class ActionDriver extends BaseClass {
 	public boolean isDisplayed(WebElement element) {
 		try {
 			waitForElementToBeVisible(element);
-			return driver.findElement((By) element).isDisplayed();
+			return element.isDisplayed();
 		} catch (Exception e) {
 			System.out.println("Element is not displayed: " + e.getMessage());
 			return false;
