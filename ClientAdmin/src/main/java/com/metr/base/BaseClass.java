@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -28,10 +29,18 @@ public class BaseClass {
 
 		if (mr_browser.equals("chrome")) {
 			driver = new ChromeDriver();
-		} else if (mr_browser.equals("edge")) {
+		} 
+		else if (mr_browser.equals("edge")) {
 			driver = new EdgeDriver();
-		} else if (mr_browser.equals("safari")) {
-			driver = new SafariDriver();
+		} 
+		else if (mr_browser.equalsIgnoreCase("firefox")) { 
+		    driver = new FirefoxDriver();
+		} 
+		else if (mr_browser.equalsIgnoreCase("safari")) {
+		    driver = new SafariDriver();
+		} 
+		else {
+		    throw new IllegalArgumentException("Unsupported browser: " + mr_browser);
 		}
 
 		driver.manage().window().maximize();
@@ -43,7 +52,7 @@ public class BaseClass {
 //		Thread.sleep(2000);
 		lg.selectCheckBox();
 		lg.clickSubmit();
-//		Thread.sleep(6000);
+		Thread.sleep(6000);
 		
         SoftAssert sa = new SoftAssert();
         
@@ -53,7 +62,7 @@ public class BaseClass {
 			lg.Logout_successful_ok.click();
 			lg.enterUsername(u_name);
 			lg.enterPassword(pass);
-			Thread.sleep(2000);
+			//Thread.sleep(2000);
 			lg.selectCheckBox();
 			lg.clickSubmit();
 		} catch (Exception e) 
@@ -66,7 +75,7 @@ public class BaseClass {
 		Login lg = new Login(driver);
 
 		lg.DevLogOut();
-		Thread.sleep(6000);
+		//Thread.sleep(6000);
 		driver.close();
 	}
 }

@@ -1,1 +1,9 @@
 <?xml version ="1.0" encoding = "UTF-8" ?>
+
+<suite name="Parallel Execution Suite" parallel="methods" thread-count="3">
+    <test name="Project Tests">
+        <classes>
+            <class name="com.metr.tests.ProjectTest"/>
+        </classes>
+    </test>
+</suite>

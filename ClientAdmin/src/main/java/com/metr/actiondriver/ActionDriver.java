@@ -1,5 +1,8 @@
 package com.metr.actiondriver;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -56,23 +59,32 @@ public class ActionDriver extends BaseClass {
 			waitForElementToBeVisible(element);
 			return element.getText();
 		} catch (Exception e) {
-			System.out.println("Unable to getText: " + e.getLocalizedMessage());
+			System.out.println("Unable to getText: " + e.getMessage());
 			return "";
 		}
 
 	}
 
-	// Wait for the Page to Load
-	public static void waitForPageLoad(int timeOutInSec) {
-		try {
-			wait.withTimeout(Duration.ofSeconds(timeOutInSec)).until(WebDriver -> ((JavascriptExecutor) WebDriver)
-					.executeScript("return document.readyState").equals("complete"));
-			System.out.println("Page loaded successfully.");
-		} catch (Exception e) {
-			System.out.println("Page did not load within " + timeOutInSec + " secondes. Exception: " + e.getMessage());
-		}
-	}
-
+	/*
+	 * // Wait for the Page to Load public static void waitForPageLoad(int
+	 * timeOutInSec) { try {
+	 * wait.withTimeout(Duration.ofSeconds(timeOutInSec)).until(WebDriver ->
+	 * ((JavascriptExecutor) WebDriver)
+	 * .executeScript("return document.readyState").equals("complete"));
+	 * System.out.println("Page loaded successfully."); } catch (Exception e) {
+	 * System.out.println("Page did not load within " + timeOutInSec +
+	 * " secondes. Exception: " + e.getMessage()); } }
+	 */
+	 // Wait for the Page to Load
+    public static void waitForPageLoad(int timeOutInSec) {
+        try {
+            wait.withTimeout(Duration.ofSeconds(timeOutInSec)).until(webDriver ->
+                    ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+            System.out.println("Page loaded successfully.");
+        } catch (Exception e) {
+            System.out.println("Page did not load within " + timeOutInSec + " seconds. Exception: " + e.getMessage());
+        }
+    }
 	// Scroll to an element
 	public void scrollToElement(WebElement element) {
 		try {
@@ -116,5 +128,18 @@ public class ActionDriver extends BaseClass {
 		} catch (Exception e) {
 			System.out.println("Unable to click element: " + e.getMessage());
 		}
+		
+	}
+	//Robot class to press enter 
+	public static void pressEnter()
+	{
+		try {
+			Robot rb = new Robot();
+			rb.keyPress(KeyEvent.VK_ENTER);
+			rb.keyRelease(KeyEvent.VK_ENTER);
+		} catch (AWTException e) {
+			System.out.println("Press enter"+e.getMessage());
+		}
+		
 	}
 }
