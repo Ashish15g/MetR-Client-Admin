@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class UsersPages {
-	public UsersPages(WebDriver driver) {
+public class UsersManagementPages {
+	public UsersManagementPages(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -22,10 +22,10 @@ public class UsersPages {
 	public @FindBy(id = "addf_username") 
 	WebElement userName;
 	// Select project
-	public @FindBy(xpath = "//span[contains(text(),'Please select a project')]") 
+	public @FindBy(xpath = "//div[@class='multiselect__tags']") 
 	WebElement selectProject;
 	//Select project Name
-	public @FindBy(xpath = "//span[text()='List is empty.']")
+	public @FindBy(xpath = "//span[@data-select='Press enter to select']")
 	List<WebElement> projectListName;
 	// Email Address
 	public @FindBy(id = "addf_email")

@@ -2,12 +2,13 @@ package com.metr.tests;
 
 import static org.testng.Assert.assertTrue;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.metr.actiondriver.ActionDriver;
 import com.metr.base.BaseClass;
 import com.metr.pages.ProjectsPages;
 import com.metr.utilities.JavaUtilitieMethod;
-
+@Listeners(com.metr.listeners.ListenersClass.class)
 public class ProjectManagementTest extends BaseClass {
 
 	@Test(priority = 1)
@@ -82,7 +83,7 @@ public class ProjectManagementTest extends BaseClass {
 		ActionDriver.waitForElementToBeVisible(pro.collaboratorsAdded);
 		ActionDriver.highlightElement(pro.collaboratorsAdded, "yellow");
 		assertTrue(pro.collaboratorsAdded.isDisplayed());
-		System.out.println("Collaborators added successfully");
+		System.out.println("✅ Collaborators added successfully");
 	}
 
 	@Test(priority = 4, dependsOnMethods = "addCollaborator",enabled =true)

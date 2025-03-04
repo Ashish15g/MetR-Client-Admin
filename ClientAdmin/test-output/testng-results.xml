@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-28T10:04:06 IST" name="Default suite" finished-at="2025-02-28T10:06:09 IST" duration-ms="122295">
+  <suite started-at="2025-03-04T15:47:56 IST" name="Default suite" finished-at="2025-03-04T15:50:17 IST" duration-ms="140604">
     <groups>
     </groups>
-    <test started-at="2025-02-28T10:04:06 IST" name="Default test" finished-at="2025-02-28T10:06:09 IST" duration-ms="122295">
-      <class name="com.metr.tests.UsersTest">
-        <test-method is-config="true" signature="preCondition()[pri:0, instance:com.metr.tests.UsersTest@293a5bf6]" started-at="2025-02-28T10:04:06 IST" name="preCondition" finished-at="2025-02-28T10:04:19 IST" duration-ms="12222" status="PASS">
+    <test started-at="2025-03-04T15:47:56 IST" name="Default test" finished-at="2025-03-04T15:50:17 IST" duration-ms="140604">
+      <class name="userAppTestScripts.UserLoginValidation">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:userAppTestScripts.UserLoginValidation@1aafa419]" started-at="2025-03-04T15:47:56 IST" name="preCondition" finished-at="2025-03-04T15:50:15 IST" duration-ms="138799" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method signature="usersManagemetn()[pri:0, instance:com.metr.tests.UsersTest@293a5bf6]" started-at="2025-02-28T10:04:19 IST" name="usersManagemetn" finished-at="2025-02-28T10:05:12 IST" duration-ms="53624" status="PASS">
+        <test-method signature="ValidateLoginFunctionality()[pri:0, instance:userAppTestScripts.UserLoginValidation@1aafa419]" started-at="2025-03-04T15:50:15 IST" name="ValidateLoginFunctionality" finished-at="2025-03-04T15:50:15 IST" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- usersManagemetn -->
-        <test-method is-config="true" signature="postCondition()[pri:0, instance:com.metr.tests.UsersTest@293a5bf6]" started-at="2025-02-28T10:05:12 IST" name="postCondition" finished-at="2025-02-28T10:06:09 IST" duration-ms="56419" status="PASS">
+        </test-method> <!-- ValidateLoginFunctionality -->
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:userAppTestScripts.UserLoginValidation@1aafa419]" started-at="2025-03-04T15:50:15 IST" name="postCondition" finished-at="2025-03-04T15:50:17 IST" duration-ms="1737" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- postCondition -->
-      </class> <!-- com.metr.tests.UsersTest -->
+      </class> <!-- userAppTestScripts.UserLoginValidation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
