@@ -1,9 +1,35 @@
 <?xml version ="1.0" encoding = "UTF-8" ?>
+<!--   <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
 
-<suite name="Parallel Execution Suite" parallel="methods" thread-count="3">
-    <test name="Project Tests">
+
+<suite name="DocMigrationSuite" parallel="methods" thread-count="3">
+    <test name="DocsToDitaTest">
         <classes>
-            <class name="com.metr.tests.ProjectTest"/>
+            <class name="userAppTestScripts.DocMigrationPageTest">
+                <methods>
+                    <include name="docsToDitaMigration"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="HtmlToDitaTest">
+        <classes>
+            <class name="userAppTestScripts.DocMigrationPageTest">
+                <methods>
+                    <include name="htmlToDitaMigration"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="MdToDitaTest">
+        <classes>
+            <class name="userAppTestScripts.DocMigrationPageTest">
+                <methods>
+                    <include name="mdToDitaMigration"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

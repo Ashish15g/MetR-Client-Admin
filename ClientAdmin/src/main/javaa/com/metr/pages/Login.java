@@ -18,7 +18,7 @@ public class Login {
 	private @FindBy(xpath = "//input[@id=\"userpassword\"]")
 	WebElement password;
 
-	private @FindBy(xpath = "//*[text()=' I agree to the ']") 
+	private @FindBy(id = "policy") 
 	WebElement checkbox;
 
 	private @FindBy(xpath = "//button[@type='submit']") 
@@ -45,7 +45,7 @@ public class Login {
 	public void selectCheckBox() {
 		// checkbox.click();
 		ActionDriver.highlightElement(checkbox, "green");
-		ActionDriver.click(checkbox);
+		ActionDriver.jsClick(checkbox);
 	}
 
 	public void clickSubmit() {

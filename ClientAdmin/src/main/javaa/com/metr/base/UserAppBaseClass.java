@@ -17,8 +17,6 @@ import com.metr.utilities.GetPropData;
 
 public class UserAppBaseClass extends BaseDriver
 {
-
-
 	@BeforeClass
 	public void preCondition() throws IOException, InterruptedException {
 		String mr_browser = GetPropData.propData("browser");
@@ -72,9 +70,9 @@ public class UserAppBaseClass extends BaseDriver
 	@AfterClass
 	public void postCondition() throws InterruptedException {
 		Login lg = new Login(driver);
-
+		Thread.sleep(6000);
 		lg.userAppLogout();
-		//Thread.sleep(6000);
+		Thread.sleep(6000);
 		driver.close();
 		driver.quit();
 	}
