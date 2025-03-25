@@ -64,7 +64,7 @@ public class DocMigrationPage {
 	 public @FindBy(xpath = "//span[contains(text(),'Choose a project')]") 
 	 WebElement projectSectionGit;
 	 //Select Project to create new branch on gitHub
-	 public @FindBy(xpath = "multiselect__element") 
+	 public @FindBy(id = "multiselect__element") 
 	 WebElement chooseProject;
 	 //click Create new branch button
 	 public @FindBy(xpath = "//button[contains(text(),'Create new branch')]") 
